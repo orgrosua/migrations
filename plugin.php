@@ -17,10 +17,12 @@
  * Domain Path:         /languages
  *
  * @package             Rosua
- * @author              Joshua <joshua@rosua.org>
+ * @author              Joshua <id@rosua.org>
  */
 
 declare(strict_types=1);
+
+use Rosua\Migrations\Migrator;
 
 defined('ABSPATH') || exit;
 
@@ -28,8 +30,7 @@ define('ROSUA_MIGRATIONS_FILE', __FILE__);
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-// Initialize the plugin
-$migrator = \Rosua\Migrations\Migrator::getInstance([
+$migrator = new Migrator([
     'tableName' => 'rosua_migrations',
     'namespace' => 'RosuaMigrations',
     'directory' => 'migrations',
